@@ -1,20 +1,65 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import Banner from '../components/Banner';
 import Header from '../components/Header'
+import MainBody from '../components/MainBody';
 
 function Main() {
+
+      const data = [
+        {
+          id: "1",
+          toyName: "He-Man",
+          toyLine: "Masters of the Universe",
+          faction: "Good",
+          maxForAge: 8,
+        },
+        {
+          id: "2",
+          toyName: "Skeletor",
+          toyLine: "Masters of the Universe",
+          faction: "Evil",
+          maxForAge: 8,
+        },
+        {
+          id: "3",
+          toyName: "Optimus Prime",
+          toyLine: "Tranformers",
+          faction: "Good",
+          maxForAge: 8,
+        },
+      ];
+
+      const renderToys = () => {
+        data.map(item => {
+
+        })
+      }
 
     const date = new Date;
     const year = date.getFullYear();
     const footerInfo = "©️ " + year + " - No rights reserved!"
     return (
-      <View>
+      <View style={styles.mainView}>
         <Header />
-        <Text>This is the main page</Text>
-        <Banner text={footerInfo}/>
+        <MainBody
+        dataLoad = {data}
+        />
+        <Banner style={styles.footer} text={footerInfo} />
       </View>
     );
-}
+};
+
+const styles = StyleSheet.create({
+    mainView: {
+    alignItems: "center",
+    },
+    footer: {
+        position: "absolute",
+        bottom: 0,
+
+    }
+
+})
 
 export default Main

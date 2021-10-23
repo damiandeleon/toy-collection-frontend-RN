@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         backgroundColor: "darkslateblue",
         height: 64,
         justifyContent: "center",
-        padding: 176,
+        padding: 20,
         color: "white",
         fontSize: 20,
         textAlign: "center",

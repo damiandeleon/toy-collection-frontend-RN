@@ -1,21 +1,17 @@
-import React from 'react'
-import { Text, StyleSheet } from 'react-native'
+import React from "react";
+import { Text, StyleSheet, useWindowDimensions } from "react-native";
+
+// const viewStyle = { width: useWindowDimensions().width};
 
 function Header() {
-    return (
-        <Text>
-            This is the Header
-        </Text>
-    )
-};
+  return <Text style={styles.container}>Welcome to your toy collection</Text>;
+}
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: "100%",
+    backgroundColor: "lightgray",
+    textAlign: "center",
   },
 });
 
-
-export default Header
+export default Header;
