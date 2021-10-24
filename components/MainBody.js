@@ -21,7 +21,7 @@ const MainBody = (props) => {
   var toyLinesSum = toyLines.length;
   //END: count the total number of toyLines in collection
 
-  //count the total number of factions in collection
+  //count the total number in each faction in the collection
   var toyFactionSumGood = 0;
   var toyFactionSumEvil = 0;
 
@@ -33,16 +33,7 @@ const MainBody = (props) => {
       toyFactionSumEvil = toyFactionSumEvil +1;
     }
   });
-
-
-
-
-
-  // console.log(toyFactionSumEvil)
-
-  // console.log(Object.values(data[0])[3]);
-
-  //END: count the total number of factions in collection
+  //END: count the total number in each faction in the collection
 
   return (
     <View>

@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native'
 import Banner from '../components/Banner';
 import Header from '../components/Header'
 import MainBody from '../components/MainBody';
+import Details from '../components/Details';
 
 function Main() {
 
@@ -66,6 +67,8 @@ function Main() {
         <MainBody
         dataLoad = {data}
         />
+        <Details
+        dataLoad = {data}/>
         <Banner style={styles.footer} text={footerInfo} />
       </View>
     );
