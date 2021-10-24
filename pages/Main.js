@@ -28,6 +28,27 @@ function Main() {
           faction: "Good",
           maxForAge: 8,
         },
+        {
+          id: "4",
+          toyName: "Megatron",
+          toyLine: "Tranformers",
+          faction: "Evil",
+          maxForAge: 8,
+        },
+        {
+          id: "5",
+          toyName: "Starscream",
+          toyLine: "Tranformers",
+          faction: "Evil",
+          maxForAge: 8,
+        },
+        {
+          id: "6",
+          toyName: "Grimlock",
+          toyLine: "Tranformers",
+          faction: "Good",
+          maxForAge: 8,
+        },
       ];
 
       const renderToys = () => {

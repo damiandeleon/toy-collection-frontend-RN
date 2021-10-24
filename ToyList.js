@@ -3,8 +3,7 @@ import MainBody from './components/MainBody';
 
 const ToyList = ()=> {
 
-    const data = 
-    [
+    const data = [
       {
         id: "1",
         toyName: "He-Man",
@@ -26,7 +25,21 @@ const ToyList = ()=> {
         faction: "Good",
         maxForAge: 8,
       },
-    ]
+      {
+        id: "4",
+        toyName: "Megatron",
+        toyLine: "Tranformers",
+        faction: "Evil",
+        maxForAge: 8,
+      },
+      {
+        id: "5",
+        toyName: "Starscream",
+        toyLine: "Tranformers",
+        faction: "Evil",
+        maxForAge: 8,
+      },
+    ];
     ;
     return (
        <MainBody

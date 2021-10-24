@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FlatList, Text, View, StyleSheet, SafeAreaView, StatusBar } from 'react-native'
 
 
@@ -6,8 +6,6 @@ const MainBody = (props) => {
   const { id, toyName, toyLine, faction, maxForAge } = props.dataLoad;
 
   const data = props.dataLoad;
-
-  //count the number of items are in the following categorie:  toyLine and total number and byfaction
 
   //count the total number of toys
   const countTotal = props.dataLoad.length;
@@ -24,25 +22,27 @@ const MainBody = (props) => {
   //END: count the total number of toyLines in collection
 
   //count the total number of factions in collection
-    const returnFactions = data.map((toyFactionList) => {
-    return toyFactionList.faction;
+  var toyFactionSumGood = 0;
+  var toyFactionSumEvil = 0;
+
+  const returnFactions = data.map((toyFactionList) => {
+    const factions = toyFactionList.faction;
+    if(factions == "Good"){
+      toyFactionSumGood = toyFactionSumGood + 1;
+    } else{
+      toyFactionSumEvil = toyFactionSumEvil +1;
+    }
   });
-  const toyFactions = returnFactions.filter(function (element, index) {
-    return returnFactions.indexOf(element) == index;
-  });
-    console.log(toyFactions);
-  var toyFactionSum = toyFactions.length;
+
+
+
+
+
+  // console.log(toyFactionSumEvil)
+
+  // console.log(Object.values(data[0])[3]);
 
   //END: count the total number of factions in collection
-
-  //____________________returns the names of the toys_______________
-
-  // const returnToyNames = props.dataLoad.map((ids) => {
-
-  //   console.log(ids.toyName);
-  // });
-  //
-  //__________________end returns the names of the toys ______________;
 
   return (
     <View>
@@ -54,7 +54,8 @@ const MainBody = (props) => {
       })} */}
       <Text style={styles.item}>Total Toys Collected: {countTotal} </Text>
       <Text style={styles.item}>Total Toy Lines Collected: {toyLinesSum} </Text>
-      <Text style={styles.item}>Total Toy Lines Collected: {toyFactions[0]} </Text>
+      <Text style={styles.item}>Total Heroes: {toyFactionSumGood} </Text>
+      <Text style={styles.item}>Total Villains: {toyFactionSumEvil} </Text>
     </View>
   );
 };
