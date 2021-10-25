@@ -36,13 +36,7 @@ const MainBody = (props) => {
   //END: count the total number in each faction in the collection
 
   return (
-    <View>
-      {/* {props.dataLoad.map(toy => {
-        return (
-              // <Text style={styles.item} key={toy.id}>{toy.toyName}</Text>
-         
-        );
-      })} */}
+    <View style={styles.container}>
       <Text style={styles.item}>Total Toys Collected: {countTotal} </Text>
       <Text style={styles.item}>Total Toy Lines Collected: {toyLinesSum} </Text>
       <Text style={styles.item}>Total Heroes: {toyFactionSumGood} </Text>
@@ -54,14 +48,18 @@ const MainBody = (props) => {
 const styles = StyleSheet.create({
   container: {
     width: "75%",
-    // alignItems: "center",
+    flexDirection: "column",
+      backgroundColor: "blanchedalmond",
+      padding: 20,
+      marginVertical: 8,
+      textAlign: "center",
   },
-  item: {
-    backgroundColor: "blanchedalmond",
-    padding: 20,
-    marginVertical: 8,
-    textAlign: "center",
-  },
+  // item: {
+  //   backgroundColor: "blanchedalmond",
+  //   padding: 20,
+  //   marginVertical: 8,
+  //   textAlign: "center",
+  // },
   title: {
     fontSize: 25,
   },

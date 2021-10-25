@@ -64,10 +64,10 @@ function Main() {
     return (
       <View style={styles.mainView}>
         <Header />
-        <MainBody
+        <MainBody 
         dataLoad = {data}
         />
-        <Details
+        <Details 
         dataLoad = {data}/>
         <Banner style={styles.footer} text={footerInfo} />
       </View>
