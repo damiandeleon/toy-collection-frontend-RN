@@ -1,15 +1,18 @@
 import React from "react";
-import { Text, View, StyleSheet, Pressable } from "react-native";
+import { Text, View, StyleSheet, Pressable, ScrollView } from "react-native";
 
 function Details(props) {
-  const { id, toyName, toyLine, faction, maxForAge } = props.dataLoad;
+  const data = props.route.params;
+  const { id, toyName, toyLine, faction, maxForAge } = data;
 
   function deleteToy() {
     console.log("I am deleting the toy");
   }
   return (
-    <View style={styles.container}>
-      {props.dataLoad.map((toy) => {
+    <ScrollView style={styles.container}>
+     
+
+      {data.map((toy) => {
         if (toy.faction == "Good") {
           return (
             <View style={styles.good} key={toy.id}>
@@ -60,13 +63,15 @@ function Details(props) {
           );
         }
       })}
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: "75%",
+    width: "100%",
+
+
   },
   button: {
     marginVertical: 10,

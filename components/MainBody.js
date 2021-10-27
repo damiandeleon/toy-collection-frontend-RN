@@ -1,12 +1,22 @@
-import React, { useState } from 'react'
-import { FlatList, Text, View, StyleSheet, SafeAreaView, StatusBar } from 'react-native'
-
+import { useNavigation } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React, { useState } from "react";
+import {
+  Button,
+  Text,
+  View,
+  StyleSheet,
+  SafeAreaView,
+  StatusBar,
+  TouchableOpacity,
+} from "react-native";
 
 const MainBody = (props) => {
   const { id, toyName, toyLine, faction, maxForAge } = props.dataLoad;
 
   const data = props.dataLoad;
-
+  console.log(data);
+  const navigation = useNavigation();
   //count the total number of toys
   const countTotal = props.dataLoad.length;
   //END: count the total number of toys
@@ -27,42 +37,53 @@ const MainBody = (props) => {
 
   const returnFactions = data.map((toyFactionList) => {
     const factions = toyFactionList.faction;
-    if(factions == "Good"){
+    if (factions == "Good") {
       toyFactionSumGood = toyFactionSumGood + 1;
-    } else{
-      toyFactionSumEvil = toyFactionSumEvil +1;
+    } else {
+      toyFactionSumEvil = toyFactionSumEvil + 1;
     }
   });
   //END: count the total number in each faction in the collection
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.item}>Total Toys Collected: {countTotal} </Text>
-      <Text style={styles.item}>Total Toy Lines Collected: {toyLinesSum} </Text>
-      <Text style={styles.item}>Total Heroes: {toyFactionSumGood} </Text>
-      <Text style={styles.item}>Total Villains: {toyFactionSumEvil} </Text>
+    <View>
+      <View style={styles.container}>
+        <Text>Total Toys Collected: {countTotal} </Text>
+        <Text>Total Toy Lines Collected: {toyLinesSum} </Text>
+        <Text>Total Heroes: {toyFactionSumGood} </Text>
+        <Text>Total Villains: {toyFactionSumEvil} </Text>
+      </View>
+      <View style={styles.button}>
+        <Button 
+        onPress={() => navigation.navigate('Details', data)}
+        title="Go to Details">
+          <Text>Click here for Details</Text>
+        </Button>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: "75%",
+    width: "100%",
     flexDirection: "column",
-      backgroundColor: "blanchedalmond",
-      padding: 20,
-      marginVertical: 8,
-      textAlign: "center",
+    backgroundColor: "blanchedalmond",
+    padding: 20,
+    marginVertical: 8,
+    textAlign: "center",
   },
-  // item: {
-  //   backgroundColor: "blanchedalmond",
-  //   padding: 20,
-  //   marginVertical: 8,
-  //   textAlign: "center",
-  // },
-  title: {
-    fontSize: 25,
+  button: {
+    borderColor: "black",
+    borderWidth: 0.5,
+    borderRadius: 25,
+    borderStyle: "solid",
+    backgroundColor: "orange",
+    padding: 10,
+    width: "75%",
+    alignItems: "center",
+    alignSelf: "center",
   },
 });
 
-export default MainBody
+export default MainBody;
