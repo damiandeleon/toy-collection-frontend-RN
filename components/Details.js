@@ -1,16 +1,30 @@
 import React from "react";
-import { Text, View, StyleSheet, Pressable, ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Text, View, StyleSheet, Pressable, ScrollView, Button } from "react-native";
 
 function Details(props) {
   const data = props.route.params;
   const { id, toyName, toyLine, faction, maxForAge } = data;
-
+  const navigation = useNavigation();
   function deleteToy() {
     console.log("I am deleting the toy");
   }
   return (
-    <ScrollView style={styles.container}>
-     
+    <ScrollView>
+      <View style={styles.navContainer}>
+        <View style={styles.navButton}>
+          <Button
+            onPress={() => navigation.navigate("Main")}
+            title='Home'
+          ></Button>
+        </View>
+        {/* <View style={styles.navButton}>
+          <Button
+            onPress={() => navigation.navigate("AddForm")}
+            title='Add Toy'
+          ></Button>
+        </View> */}
+      </View>
 
       {data.map((toy) => {
         if (toy.faction == "Good") {
@@ -68,10 +82,22 @@ function Details(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-
-
+  navContainer: {
+    alignSelf: "center",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  navButton: {
+    borderColor: "black",
+    borderWidth: 0.5,
+    borderRadius: 25,
+    borderStyle: "solid",
+    backgroundColor: "orange",
+    padding: 10,
+    width: "40%",
+    alignItems: "center",
+    alignSelf: "center",
+    margin: 5,
   },
   button: {
     marginVertical: 10,
