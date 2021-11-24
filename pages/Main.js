@@ -11,6 +11,7 @@ import Banner from "../components/Banner";
 import Header from "../components/Header";
 import MainBody from "../components/MainBody";
 import Details from "../components/Details";
+import AddForm from "./AddForm";
 
 function Main({ navigation }) {
   const [data, setData] = useState([
@@ -64,6 +65,7 @@ function Main({ navigation }) {
   return (
     <View style={styles.mainView}>
       <MainBody dataLoad={data} />
+      
       {/* <Details dataLoad={data} /> */}
       <Banner style={styles.footer} text={footerInfo} />
     </View>

@@ -53,12 +53,19 @@ const MainBody = (props) => {
         <Text>Total Heroes: {toyFactionSumGood} </Text>
         <Text>Total Villains: {toyFactionSumEvil} </Text>
       </View>
-      <View style={styles.button}>
-        <Button 
-        onPress={() => navigation.navigate('Details', data)}
-        title="Go to Details">
-          <Text>Click here for Details</Text>
-        </Button>
+      <View style={styles.navContainer}>
+        <View style={styles.navButton}>
+          <Button
+            onPress={() => navigation.navigate("Details", data)}
+            title='Details'
+          ></Button>
+        </View>
+        <View style={styles.navButton}>
+          <Button
+            onPress={() => navigation.navigate("AddForm")}
+            title='Add Toy'
+          ></Button>
+        </View>
       </View>
     </View>
   );
@@ -83,6 +90,23 @@ const styles = StyleSheet.create({
     width: "75%",
     alignItems: "center",
     alignSelf: "center",
+  },
+  navContainer: {
+    alignSelf: "center",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  navButton: {
+    borderColor: "black",
+    borderWidth: 0.5,
+    borderRadius: 25,
+    borderStyle: "solid",
+    backgroundColor: "orange",
+    padding: 10,
+    width: "40%",
+    alignItems: "center",
+    alignSelf: "center",
+    margin: 5,
   },
 });
 

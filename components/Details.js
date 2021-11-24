@@ -18,12 +18,12 @@ function Details(props) {
             title='Home'
           ></Button>
         </View>
-        {/* <View style={styles.navButton}>
+        <View style={styles.navButton}>
           <Button
             onPress={() => navigation.navigate("AddForm")}
             title='Add Toy'
           ></Button>
-        </View> */}
+        </View>
       </View>
 
       {data.map((toy) => {
@@ -63,7 +63,7 @@ function Details(props) {
               <Text>Bad Guy </Text>
               <Text>Ages {toy.maxForAge} and up</Text>
               <Pressable
-                style={({ pressed }) => [
+                style={ ({ pressed }) => [
                   {
                     backgroundColor: pressed ? "#E6E6FA" : "#CD5C5C",
                   },
