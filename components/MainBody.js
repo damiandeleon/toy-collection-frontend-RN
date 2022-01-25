@@ -15,7 +15,7 @@ const MainBody = (props) => {
   const { id, toyName, toyLine, faction, maxForAge } = props.dataLoad;
 
   const data = props.dataLoad;
-  console.log(data);
+
   const navigation = useNavigation();
   //count the total number of toys
   const countTotal = props.dataLoad.length;
@@ -39,7 +39,7 @@ const MainBody = (props) => {
     const factions = toyFactionList.faction;
     if (factions == "Good") {
       toyFactionSumGood = toyFactionSumGood + 1;
-    } else {
+    } else if(factions == "Evil"){
       toyFactionSumEvil = toyFactionSumEvil + 1;
     }
   });
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 8,
     textAlign: "center",
+    alignSelf: "center",
   },
   button: {
     borderColor: "black",

@@ -1,22 +1,29 @@
 import React, {useState} from 'react'
 import { Text, TextInput, View, StyleSheet, Pressable } from 'react-native';
 import { useForm, Controller } from "react-hook-form";
+import api from '../routers/api/api';
+import { useNavigation } from "@react-navigation/native";
 
 function Form() {
 
+  const navigation = useNavigation();
     const {
       control,
       handleSubmit,
       formState: { errors },
     } = useForm({
       defaultValues: {
-        toyName: "",
         toyLine: "",
         faction: "",
-        maxForAge: 0,
+        maxForAge: "",
+        toyName: "",
       },
     });
-    const submitToy = (data) => console.log("Submitting Toy", data);
+    const submitToy = (data) => {
+
+      api.create(data)
+      .then(function () {navigation.navigate("Main")})
+    };
 
 
     return (
@@ -57,7 +64,7 @@ function Form() {
           )}
           name='toyLine'
         />
-        {errors.toyName && <Text>This is required.</Text>}
+        {errors.toyLine && <Text>This is required.</Text>}
 
         {/* faction input */}
         <Controller
@@ -76,7 +83,7 @@ function Form() {
           )}
           name='faction'
         />
-        {errors.toyName && <Text>This is required.</Text>}
+        {errors.faction && <Text>This is required.</Text>}
 
         {/* maxAge input */}
         <Controller
@@ -95,7 +102,7 @@ function Form() {
           )}
           name='maxForAge'
         />
-        {errors.toyName && <Text>This is required.</Text>}
+        {errors.maxForAge && <Text>This is required.</Text>}
 
         {/* <TextInput
           style={styles.input}

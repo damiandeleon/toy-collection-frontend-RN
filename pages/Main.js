@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
@@ -12,52 +12,24 @@ import Header from "../components/Header";
 import MainBody from "../components/MainBody";
 import Details from "../components/Details";
 import AddForm from "./AddForm";
+import api from "../routers/api/api";
+
+
 
 function Main({ navigation }) {
-  const [data, setData] = useState([
-    {
-      id: "1",
-      toyName: "He-Man",
-      toyLine: "Masters of the Universe",
-      faction: "Good",
-      maxForAge: 8,
-    },
-    {
-      id: "2",
-      toyName: "Skeletor",
-      toyLine: "Masters of the Universe",
-      faction: "Evil",
-      maxForAge: 8,
-    },
-    {
-      id: "3",
-      toyName: "Optimus Prime",
-      toyLine: "Tranformers",
-      faction: "Good",
-      maxForAge: 8,
-    },
-    {
-      id: "4",
-      toyName: "Megatron",
-      toyLine: "Tranformers",
-      faction: "Evil",
-      maxForAge: 8,
-    },
-    {
-      id: "5",
-      toyName: "Starscream",
-      toyLine: "Tranformers",
-      faction: "Evil",
-      maxForAge: 8,
-    },
-    {
-      id: "6",
-      toyName: "Grimlock",
-      toyLine: "Tranformers",
-      faction: "Good",
-      maxForAge: 8,
-    },
-  ]);
+  const loadEntries = () => {
+    api.getToys().then((response) => {
+      console.log(response);
+      setData(response);
+    });
+  }; 
+  const [data, setData] = useState([]);
+
+ useEffect(() => {
+    loadEntries()
+ }, [])
+
+  
 
   const date = new Date();
   const year = date.getFullYear();
