@@ -9,7 +9,9 @@ import {
   SafeAreaView,
   StatusBar,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
+import Form from "./Form"
 
 const MainBody = (props) => {
   const { id, toyName, toyLine, faction, maxForAge } = props.dataLoad;
@@ -53,21 +55,41 @@ const MainBody = (props) => {
         <Text>Total Heroes: {toyFactionSumGood} </Text>
         <Text>Total Villains: {toyFactionSumEvil} </Text>
       </View>
-      <View style={styles.navContainer}>
-        <View style={styles.navButton}>
-          <Button
-            onPress={() => navigation.navigate("Details", data)}
-            title='Details'
-          ></Button>
-        </View>
-        <View style={styles.navButton}>
-          <Button
+      {/* <View style={styles.navContainer}> */}
+      {/* <View
+        style={({ pressed }) => [
+          {
+            backgroundColor: pressed ? "#E6E6FA" : "#00FF00",
+          },
+          styles.button,
+        ]}
+      >
+        <Button
+          onPress={() => navigation.navigate("Details", data)}
+          title='Details'
+        ></Button>
+      </View> */}
+      <Pressable
+        style={({ pressed }) => [
+          {
+            backgroundColor: pressed ? "#E6E6FA" : "lightblue",
+          },
+          styles.button,
+        ]}
+        onPress={() => navigation.navigate("Details", data)}
+      >
+        <Text style={{ color: "black", textAlign: "center" }}>Details</Text>
+      </Pressable>
+      <View>
+        {/* <Button
             onPress={() => navigation.navigate("AddForm")}
             title='Add Toy'
-          ></Button>
-        </View>
+          ></Button> */}
+        <Text style={styles.container}>Add a New Toy</Text>
+        <Form />
       </View>
     </View>
+    // </View>
   );
 };
 
@@ -81,17 +103,17 @@ const styles = StyleSheet.create({
     textAlign: "center",
     alignSelf: "center",
   },
-  button: {
-    borderColor: "black",
-    borderWidth: 0.5,
-    borderRadius: 25,
-    borderStyle: "solid",
-    backgroundColor: "orange",
-    padding: 10,
-    width: "75%",
-    alignItems: "center",
-    alignSelf: "center",
-  },
+  // button: {
+  //   borderColor: "black",
+  //   borderWidth: 0.5,
+  //   borderRadius: 25,
+  //   borderStyle: "solid",
+  //   backgroundColor: "orange",
+  //   padding: 0,
+  //   width: "75%",
+  //   alignItems: "center",
+  //   alignSelf: "center",
+  // },
   navContainer: {
     alignSelf: "center",
     flexDirection: "row",
@@ -108,6 +130,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
     margin: 5,
+  },
+  button: {
+    marginVertical: 10,
+    padding: 10,
+    borderRadius: 15,
+    borderColor: "black",
+    borderWidth: 0.5,
   },
 });
 

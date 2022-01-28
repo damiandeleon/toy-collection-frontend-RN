@@ -22,7 +22,7 @@ function Form() {
     const submitToy = (data) => {
 
       api.create(data)
-      .then(function () {navigation.navigate("Main")})
+      .then(function () {navigation.pop(1)})
     };
 
 
@@ -129,12 +129,12 @@ function Form() {
           placeholder='Minimum Age'
         ></TextInput> */}
         <Pressable
-          style={({ pressed }) => [
-            {
-              backgroundColor: pressed ? "#E6E6FA" : "#00FF00",
-            },
-            styles.button,
-          ]}
+            style={({ pressed }) => [
+              {
+                backgroundColor: pressed ? "#E6E6FA" : "#00FF00",
+              },
+              styles.button,
+            ]}
           onPress={handleSubmit(submitToy)}
         >
           <Text style={{ color: "black", textAlign: "center" }}>Submit</Text>

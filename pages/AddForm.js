@@ -7,14 +7,14 @@ function AddForm({ navigation}) {
 
   return (
     <View>
-      <View style={styles.navContainer}>
+      {/* <View style={styles.navContainer}>
         <View style={styles.navButton}>
           <Button
             onPress={() => navigation.navigate("Main")}
             title='Home'
           ></Button>
         </View>
-      </View>
+      </View> */}
 
       <Form />
     </View>
